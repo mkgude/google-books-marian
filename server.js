@@ -18,13 +18,13 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI ||
-    "mongodb+srv://mkgude:318Pearson@cluster0.krf87.mongodb.net/googlebooks?retryWrites=true&w=majority",
+  process.env.MONGODB_URI || "mongodb://localhost:27017/google_book",
   {
     useCreateIndex: true,
     useNewUrlParser: true,
   }
 );
+// mongodb+srv://mkgude:318Pearson@cluster0.krf87.mongodb.net/googlebooks?retryWrites=true&w=majority
 
 // Start the API server
 app.listen(PORT, () =>
