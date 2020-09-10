@@ -5,6 +5,7 @@ const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+require("dotenv").config();
 // Configure body parsing for AJAX requests
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -17,14 +18,10 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(
-  process.env.MONGODB_URI ||
-    "mongodb+srv://mkgude:318Pearson@cluster0.krf87.mongodb.net/googlebooks?retryWrites=true&w=majority",
-  {
-    useCreateIndex: true,
-    useNewUrlParser: true,
-  }
-);
+mongoose.connect(process.env.MONGODB_URI || process.env.MONGOATLAS, {
+  useCreateIndex: true,
+  useNewUrlParser: true,
+});
 //
 // mongodb://localhost:27017/google_book
 
